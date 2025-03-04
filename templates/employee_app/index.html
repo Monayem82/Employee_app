@@ -9,12 +9,50 @@
 
             <section>
                 <h1 class="text-center">Employee </h1>
+
+
             </section>
 
+
             <section>
-                {% for employee in employes %}
-                {{employee.url}} <br>
-                {% endfor %}
+                <div class="container">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">degignation</th>
+                                    <th scope="col">email</th>
+                                    <th scope="col">phone_number</th>
+                                    <!-- <th scope="col">url</th> -->
+                                    <!-- <th scope="col">image</th> -->
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col">Opertions</th>
+                                </tr>
+                            </thead>
+                            {% for employee in employes %}                            
+                            <tbody>
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td><a href="{% url 'employe_edit' employee.id %}">{{employee.first_name}}</a></td>
+                                    <td>{{employee.last_name}}</td>
+                                    <td>{{employee.degignation}}</td>
+                                    <td>{{employee.email}}</td>
+                                    <td>{{employee.phone_number}}</td>
+                                    <!-- <td>{{employee.url}}</td> -->
+                                    <!-- <td><img src="{{employee.image.url}}" class="table-img img-fluid" alt="{{employee.first_name}}"></td> -->
+                                    <td>{{employee.created_at}}</td>
+                                    <td><a href="{% url 'employe_edit' employee.id %}">Edit</a>||<a href="{% url 'employe_edit' employee.id %}">Delete</a></td>
+                                </tr>
+
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
             </section>
 
         {% endblock content %}
