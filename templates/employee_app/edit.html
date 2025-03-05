@@ -3,7 +3,33 @@
 
 {% block title %} Edit Employee {% endblock title %}
 
-{% block style %} {% endblock style %}
+{% block style %} 
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .profile-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+    .social-icons a {
+        margin: 0 10px;
+        color: #007bff;
+        font-size: 20px;
+    }
+</style>
+
+{% endblock style %}
 
         {% block content %} 
             <h1 class="text-center"> Employee detais</h1>
@@ -13,9 +39,36 @@
 
                   <div class="col-4 mx-auto">
                     {{employee.first_name}}
+                    <a class="btn btn-primary mt-3" href="{% url 'employe_index' %}">back to home</a>
                   </div>
                 </div>
               </div>
+
+
+              <section>
+                <div class="container mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="profile-card">
+                                <img src=" {{employee.image.url}}" alt="Profile Picture" class="profile-img">
+                                <h3> {{employee.first_name}}  {{employee.last_name}}</h3>
+                                <p class="text-muted">Software Engineer</p>
+                                <p><strong>Email:</strong> {{employee.email}}</p>
+                                <p><strong>Phone:</strong> {{employee.phone_number}}</p>
+                                <p><strong>Department:</strong>  {{employee.degignation}}</p>
+                                <p><strong>Status:</strong> <span class="badge bg-success">Active</span></p>
+                                <div class="social-icons">
+                                    <a href="#"><i class="bi bi-facebook"></i></a>
+                                    <a href="#"><i class="bi bi-twitter"></i></a>
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                                <a class="btn btn-primary mt-3" href="{% url 'employe_edit_up' employee.id %}">Edit Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </section>
+
         {% endblock content %}
 
 {% block script %} {% endblock script %}

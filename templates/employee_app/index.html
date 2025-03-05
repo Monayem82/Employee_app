@@ -16,6 +16,7 @@
 
             <section>
                 <div class="container">
+                    <a href="{% url 'employe_create' %}">Create</a>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-hover align-middle">
                             <thead class="table-light">
@@ -42,9 +43,11 @@
                                     <td>{{employee.email}}</td>
                                     <td>{{employee.phone_number}}</td>
                                     <!-- <td>{{employee.url}}</td> -->
-                                    <!-- <td><img src="{{employee.image.url}}" class="table-img img-fluid" alt="{{employee.first_name}}"></td> -->
+                                    {% if employee and employee.image %}
+                                    <td><img src="{{ employee.image.url }}" class="table-img img-fluid" alt="{{employee.first_name}}"></td>
+                                    {% endif %}
                                     <td>{{employee.created_at}}</td>
-                                    <td><a href="{% url 'employe_edit' employee.id %}">Edit</a>||<a href="{% url 'employe_edit' employee.id %}">Delete</a></td>
+                                    <td><a href="{% url 'employe_edit' employee.id %}">Edit</a>||<a href="{% url 'employe_edit' employee.id %}">Delete pending</a></td>
                                 </tr>
 
                                 {% endfor %}

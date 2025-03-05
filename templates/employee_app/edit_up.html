@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {% endblock title %}
+
+{% block style %} {% endblock style %}
+
+        {% block content %} 
+
+        {% if employee %}Edit Profile{% else %}Create Profile{% endif %}
+                <form enctype="multipart/form-data" method="post" id="employee_form">{% csrf_token %}
+                <div class="center">
+
+
+
+
+
+
+
+                <fieldset class="module aligned ">
+                    
+                    
+                    
+                        <div class="form-row field-first_name">
+                            
+                            
+                                <div>
+                                    
+                                        <div class="flex-container">
+                                            
+                                                <label class="required" for="id_first_name">First name:</label>
+                                                
+                                                    <input type="text" value="{{employee.first_name}}" name="first_name" class="vTextField" maxlength="20" required id="id_first_name">
+                                                
+                                            
+                                        </div>
+                                    
+                                </div>
+                            
+                            
+                        </div>
+                    
+                        <div class="form-row field-last_name">
+                            
+                            
+                                <div>
+                                    
+                                        <div class="flex-container">
+                                            
+                                                <label class="required" for="id_last_name">Last name:</label>
+                                                
+                                                    <input type="text" value="{{employee.last_name}}" name="last_name" class="vTextField" maxlength="20" required id="id_last_name">
+                                                
+                                            
+                                        </div>
+                                    
+                                </div>
+                            
+                            
+                        </div>
+                    
+                        <div class="form-row field-degignation">
+                            
+                            
+                                <div>
+                                    
+                                        <div class="flex-container">
+                                            
+                                                <label class="required" for="id_degignation">Degignation:</label>
+                                                
+                                                    <input type="text" value="{{employee.degignation}}" name="degignation" class="vTextField" maxlength="20" required id="id_degignation">
+                                                
+                                            
+                                        </div>
+                                    
+                                </div>
+                            
+                            
+                        </div>
+                    
+                        <div class="form-row field-email">
+                            
+                            
+                                <div>
+                                    
+                                        <div class="flex-container">
+                                            
+                                                <label class="required" for="id_email">Email:</label>
+                                                
+                                                    <input type="email" value="{{employee.email}}" name="email" class="vTextField" maxlength="254" required id="id_email">
+                                                
+                                            
+                                        </div>
+                                    
+                                </div>
+                            
+                            
+                        </div>
+                    
+                        <div class="form-row field-phone_number">
+                            
+                            
+                                <div>
+                                    
+                                        <div class="flex-container">
+                                            
+                                                <label class="required" for="id_phone_number">Phone number:</label>
+                                                
+                                                    <input type="text" value="{{employee.phone_number}}" name="phone_number" class="vTextField" maxlength="14" required id="id_phone_number">
+                                                
+                                            
+                                        </div>
+                                    
+                                </div>
+                            
+                            
+                        </div>
+                    
+                        <div class="form-row field-url">
+                            
+                            
+                                <div>
+                                    
+                                        <div class="flex-container">
+                                            
+                                                <label class="required" for="id_url">Url:</label>
+                                                
+                                                    <input type="url" value="{{employee.url}}" name="url" class="vURLField" maxlength="200" required id="id_url">
+                                                
+                                            
+                                        </div>
+                                    
+                                </div>
+                            
+                            
+                        </div>
+                        <div class="form-row field-image">
+                            
+                            
+                                <div>
+                                    
+                                        <div class="flex-container">
+                                            
+                                                <label class="required" for="id_image">Image:</label>
+                                                
+                                                    <input type="file" value="image" name="image" accept="image/*" id="id_image">
+                                                
+                                            
+                                        </div>
+                                    
+                                </div>
+                            
+                            
+                        </div>
+                    
+                    
+                </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="submit-row">
+
+                <button class="btn btn-primary" type="submit">{% if employee %}Update{% else %}Create{% endif %} Profile</button>
+
+
+
+</div>
+
+        {% endblock content %}
+
+{% block script %} {% endblock script %}
